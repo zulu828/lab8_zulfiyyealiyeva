@@ -1,0 +1,76 @@
+Laboratoriya işi № 8: Funksiyalar
+
+
+HİSSƏ A
+
+A1. Proqnozum:
+Salam, Aysel!
+Xosh gəldin, Kamran!
+Sabahınız xeyir, Nigar!
+Kodu işlətdim, nəticə proqnozla eyni oldu. Birinci çağırışda greeting verilməyib, ona görə default "Salam" işlədi. İkincidə öz sözümüzü yazdıq, o default-u əvəz etdi. Üçüncüdə açar sözlü arqument olduğu üçün sıranın əhəmiyyəti olmadı.
+
+A2. Proqnozum:
+16
+16
+None
+Birinci 16 b = show_square(4) sətrində çıxır, çünki funksiya öz içində çap edir. İkinci 16 print(a)-dan, None isə print(b)-dən gəlir.
+b niyə None alır? Çünki show_square-də return yoxdur, belə funksiyalar avtomatik None qaytarır.
+Fərq: square nəticəni return edir, onu dəyişəndə saxlayıb sonra istifadə etmək olar. show_square yalnız ekrana yazır, geri heç nə vermir.
+
+A3. Proqnozum:
+['bread', 'milk']
+['bread', 'milk', 'cheese']
+add_item listin özünə əlavə edir, ona görə basket dəyişir. add_item_copy isə əvvəlcə kopya yaradır (items[:]), "cheese"-i kopyaya əlavə edir, ona görə basket-də "cheese" yoxdur.
+
+
+TAPŞIRIQ 1
+
+Funksiyanı iki arqumentlə çağırdım: print_student_card("Aysel Mammadova", "CE-101")
+Xəta:
+TypeError: print_student_card() missing 1 required positional argument: 'year'
+İzah: funksiya 3 arqument istəyir, mən 2 verdim, ona görə year üçün qiymət tapılmadı. Sonra bu sətri # ilə şərhə çevirdim.
+
+
+TAPŞIRIQ 2
+
+Sual: Default qiymətli parametr niyə default-u olmayanlardan sonra yazılmalıdır?
+Cavab: Mövqeli arqumentlər soldan sağa verilir. Default-lu parametr əvvəldə olsa, Python hansı arqumentin hansı parametrə getdiyini bilməz, ona görə SyntaxError verir.
+
+
+TAPŞIRIQ 5
+
+Sual: Hər sətir niyə belə nəticə verdi? scores[:] nə edir?
+1-ci sətir [80, 100, 98, 100]: with_bonus hər bala 10 əlavə edib yeni list qaytarır (100-dən çox olmur).
+2-ci sətir [70, 95, 88, 100]: with_bonus orijinal listi dəyişmir, ona görə scores əvvəlki kimi qalır.
+3-cü sətir [70, 95, 88, 100]: add_bonus-a scores[:] verdim, yəni kopya. Funksiya kopyanı dəyişdi, orijinal dəyişmədi.
+4-cü sətir [80, 100, 98, 100]: bu dəfə orijinal listi verdim, funksiya onu yerində dəyişdi.
+scores[:] listin hamısını götürüb yeni kopya düzəldir.
+
+
+TAPŞIRIQ 7
+
+Sual: from utils import * niyə tövsiyə olunmur?
+Cavab: Bu, moduldakı bütün adları gətirir. Onlar bizim öz adlarımızla qarışa bilər və kodda funksiyanın haradan gəldiyi bilinmir.
+
+
+TAPŞIRIQ 8: Xətaların cədvəli
+
+№ 1
+Xətanın növü: SyntaxError (iki nöqtə yoxdur)
+Harada: def calculate_total(prices, discount=0) sətrində
+Necə düzəldildi: Sətrin sonuna : qoydum.
+
+№ 2
+Xətanın növü: SyntaxError (default-lu parametr default-suzdan əvvəl gəlib)
+Harada: def describe_order(customer, country="Azerbaijan", city)
+Necə düzəldildi: Sıranı dəyişdim: describe_order(customer, city, country="Azerbaijan").
+
+№ 3
+Xətanın növü: Məntiq xətası (print var, return yoxdur)
+Harada: calculate_total funksiyasının sonunda print(total)
+Necə düzəldildi: print(total) əvəzinə return total yazdım. Əks halda order_total None olurdu və "Total: None" çap olunurdu.
+
+№ 4
+Xətanın növü: TypeError (customer parametrinə iki dəfə qiymət verilib)
+Harada: print(describe_order("Baku", customer="Ali"))
+Necə düzəldildi: Çağırışı belə yazdım: describe_order(customer="Ali", city="Baku").

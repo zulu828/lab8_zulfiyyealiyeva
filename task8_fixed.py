@@ -1,8 +1,5 @@
-"""Corrected code for Task 8."""
-
-
 def calculate_total(prices, discount=0):
-    """Return the total after applying a discount."""
+    """Return the total price after discount (in percent)."""
     total = 0
     for price in prices:
         total += price
@@ -11,10 +8,10 @@ def calculate_total(prices, discount=0):
 
 
 def describe_order(customer, city, country="Azerbaijan"):
-    """Return a sentence describing an order."""
+    """Return a sentence describing where the customer ordered from."""
     return customer + " ordered from " + city + ", " + country
 
 
 order_total = calculate_total([10, 20, 30], 10)
 print("Total: " + str(order_total))
-print(describe_order("Ali", city="Baku"))
+print(describe_order(customer="Ali", city="Baku"))
